@@ -1,3 +1,3 @@
 #!flask/bin/python
 from app import app
-app.run(debug=True,host='apsrd7774', port=5000)
+app.run(debug=True,host='localhost', port=5000)
