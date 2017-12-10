@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+<head>
+<title>CPTDecoder</title>
+<meta charset = "UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='cpt.css') }}">-->
+</head>
+<body>
+<div class="jumbotron">
+<div class="shift" style="margin-left: 106px;">
+  <h2>Movie Genre Classifier</h2>
+  <p>Deep Learning based Implementation</p>
+</div>
+</div>
+<div class="container">
+
+    <div class="leftpane">
+        <div class="form">
+				<p>
+		<label for = "notes">MOVIE PLOT</label><br>
+            <form action = "http://apsrd7774:5000/lstm" method = "post">
+              <textarea id="notes" name="notes" cols = "159" rows = "12" placeholder = "Enter Movie Plot" style="border:0px solid #000000;border-width: 3px">{{plots}}
+	             </textarea>
+             <br>
+              <button type="submit" class="btn btn-warning">Submit</button>
+	      </br>
+            </form>
+            <br>
+                </p>
+			</div>
+
+    </div>
+
+        <div class="rightpane">
+
+        <div class="panel panel-primary">
+
+        <div class="panel-heading" data-toggle="collapse" data-target="#demo">GENRES</div>
+        <div class="panel-body" id="demo" class="collapse in">
+	<ul class="list-group">
+
+
+        {% for element in result %}
+
+        <li class="list-group-item">{{element}}</li>
+
+        {% endfor %}
+        </ul>
+           </div>
+           </div>
+
+        </div>
+
+
+	</div>
+</body>
+</html>
